@@ -11,7 +11,7 @@ JSP와 DB를 이용하여 회원가입하고 자유게시판이 있는 웹사이
 * 팀원 임형철 front-end 개발
 
 ## 개발 환경
-Eclipse java, JSP , MySQLㅁ
+Eclipse java, JSP , MySQL
 
 ##  주요기능
 학생들의 커뮤니티 웹사이트, DB를 이용한 회원가입 , 자유게시판
