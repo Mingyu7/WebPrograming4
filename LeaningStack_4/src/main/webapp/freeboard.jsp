@@ -5,74 +5,71 @@
 <HTML>
 <HEAD>
     <TITLE>게시판</TITLE>
-   <style>
+    <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5;
         }
         .container {
-            max-width: 1200px;
-            margin: 30px auto;
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #444;
             padding: 20px;
-            background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
-        header {
+        h2 {
             text-align: center;
-            padding: 20px;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 8px 8px 0 0;
-        }
-        h1 {
-            font-size: 2em;
-            margin: 0;
-        }
-        .btn-new-post {
-            display: inline-block;
-            margin: 20px 0;
-            padding: 12px 20px;
-            background-color: #28a745;
-            color: white;
-            font-size: 1em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-        .btn-new-post:hover {
-            background-color: #218838;
-        }
-        .post-card {
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            color: #5bc0de;
             margin-bottom: 20px;
-            padding: 16px;
-            background-color: #fafafa;
-            transition: box-shadow 0.3s ease;
         }
-        .post-card:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
         }
-        .post-title {
-            font-size: 1.5em;
-            margin: 0;
-            color: #333;
+        table, th, td {
+            border: 1px solid #666;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+        th {
+            background-color: #555;
+            color: #ddd;
+        }
+        tr:nth-child(even) {
+            background-color: #5c5c5c;
+        }
+        tr:nth-child(odd) {
+            background-color: #666;
+        }
+        a {
+            color: #5bc0de;
             text-decoration: none;
         }
-        .post-title:hover {
-            color: #007bff;
+        a:hover {
+            text-decoration: underline;
         }
-        .post-meta {
-            color: #666;
-            font-size: 0.9em;
-            margin-top: 8px;
+        .write-button {
+            text-align: right;
+            margin-top: 20px;
+        }
+        .write-button a {
+            color: #fff;
+            background-color: #5bc0de;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .write-button a:hover {
+            background-color: #31b0d5;
         }
     </style>
 </HEAD>
@@ -144,7 +141,7 @@ while(rs.next()) {
 <TABLE border='0' width='600'>
     <TR>
         <TD align='left'></TD>
-        <TD align="right"><a href='write.jsp'>|글쓰기|</a></TD>
+        <TD align='right'><a href='write.jsp'>|글쓰기|</a></TD>
     </TR>
 </TABLE>
 

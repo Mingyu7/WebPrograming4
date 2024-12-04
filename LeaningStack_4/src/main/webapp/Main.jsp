@@ -134,7 +134,9 @@
             <li><a href="Community.jsp">커뮤니티</a></li>
             <li><a href="freeboard.jsp">자유게시판</a></li>
             <li><a href="Q&A.jsp">질문게시판</a></li>
-            <li><a href="Photo.jsp">갤러리</a></li>            
+            <li><a href="Photo.jsp">갤러리</a></li>        
+            <li><a href="About.jsp">팀원소개</a></li>       
+            <li><a href="SiteMap.jsp">사이트맵</a></li>   
         </ul>
     </nav>
     <div class="auth-buttons">
