@@ -132,7 +132,7 @@
     <nav>
         <ul>
             <li><a href="Community.jsp">커뮤니티</a></li>
-            <li><a href="freeboard.jsp">자유게시판</a></li>
+            <li><a href="listboard.jsp">자유게시판</a></li>
             <li><a href="Q&A.jsp">질문게시판</a></li>
             <li><a href="Photo.jsp">갤러리</a></li>        
             <li><a href="About.jsp">팀원소개</a></li>       
@@ -140,7 +140,7 @@
         </ul>
     </nav>
     <div class="auth-buttons">
-        <a href="Login.jsp">로그인</a>
+        <a href="member.jsp">로그인</a>
         <a href="signup.jsp">회원가입</a>
     </div>
 </header>

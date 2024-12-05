@@ -6,107 +6,27 @@
 <HEAD>
     <TITLE>게시판</TITLE>
     <style type="text/css">
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            padding: 20px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .content-header {
-            text-align: center;
-            font-size: 1.5em;
-            margin-bottom: 20px;
-        }
-
-        .info-table {
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .info-table td {
-            padding: 8px;
-            font-size: 0.9em;
-        }
-
-        .info-table td:nth-child(1) {
-            width: 30%;
-            font-weight: bold;
-            background-color: #f0f0f0;
-        }
-
-        .content-title {
-            text-align: center;
-            background-color: #cccccc;
-            padding: 15px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .content-body {
-            background-color: #ededed;
-            padding: 20px;
-            font-size: 1em;
-            line-height: 1.6;
-        }
-
-        .footer {
-            text-align: right;
-            margin-top: 20px;
-        }
-
-        .footer a {
-            color: #007BFF;
-            text-decoration: none;
-            margin-left: 15px;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        hr {
-            border: 1px solid #ccc;
-        }
-
-        .form-container {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            display: none; /* Initially hide the form */
-        }
-
-        .form-container input[type="text"], .form-container input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .form-container input[type="submit"] {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .form-container input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
+        /* 스타일은 그대로 유지 */
+        body { font-family: Arial, sans-serif; background-color: #f5f5f5; padding: 20px; }
+        .container { width: 100%; max-width: 800px; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+        .content-header { text-align: center; font-size: 1.5em; margin-bottom: 20px; }
+        .info-table { width: 100%; margin-bottom: 20px; }
+        .info-table td { padding: 8px; font-size: 0.9em; }
+        .info-table td:nth-child(1) { width: 30%; font-weight: bold; background-color: #f0f0f0; }
+        .content-title { text-align: center; background-color: #cccccc; padding: 15px; font-size: 1.2em; font-weight: bold; }
+        .content-body { background-color: #ededed; padding: 20px; font-size: 1em; line-height: 1.6; }
+        .footer { text-align: right; margin-top: 20px; }
+        .footer a { color: #007BFF; text-decoration: none; margin-left: 15px; }
+        .footer a:hover { text-decoration: underline; }
+        hr { border: 1px solid #ccc; }
+        .form-container { margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); display: none; }
+        .form-container input[type="text"], .form-container input[type="password"] { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; }
+        .form-container input[type="submit"] { background-color: #007BFF; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; }
+        .form-container input[type="submit"]:hover { background-color: #0056b3; }
+        .comment-container { margin-top: 20px; padding: 10px; background-color: #f8f8f8; border-radius: 5px; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); }
+        .comment { margin-bottom: 15px; padding: 10px; background-color: #fff; border-radius: 5px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
+        .comment h4 { font-size: 1em; color: #007BFF; }
+        .comment p { font-size: 0.9em; line-height: 1.4; }
     </style>
 </HEAD>
 
@@ -188,6 +108,41 @@
         <a href="#" onclick="showDeleteForm()">[글삭제]</a> <!-- 글삭제 버튼 클릭 시 폼 보이기 -->
         <a href="listboard.jsp">[목록보기]</a>
     </div>
+
+    <!-- 게시글 내용 아래에 댓글 작성 폼 추가 -->
+    <div class="comment-form">
+        <h3>댓글 작성</h3>
+        <form action="postComment.jsp" method="post">
+            <input type="hidden" name="board_id" value="<%= num %>"> <!-- 게시글 번호 -->
+            작성자: <input type="text" name="commenter_name" required><br>
+            댓글 내용: <textarea name="comment_text" required></textarea><br>
+            <input type="submit" value="댓글 작성">
+        </form>
+    </div>
+
+    <!-- 댓글 표시 부분 -->
+    <div class="comment-container">
+        <h3>댓글 목록</h3>
+        <%
+            // 댓글 조회
+            String commentSQL = "SELECT * FROM tblcomments WHERE board_id = ? ORDER BY comment_id DESC";
+            pstmt = conn.prepareStatement(commentSQL);
+            pstmt.setInt(1, Integer.parseInt(num));
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                String commenterName = rs.getString("commenter_name");
+                String commentText = rs.getString("comment_text");
+        %>
+                <div class="comment">
+                    <h4><%= commenterName %></h4>
+                    <p><%= commentText %></p>
+                </div>
+        <%
+            }
+        %>
+    </div>
+
 </div>
 
 <!-- 글 삭제 폼 -->
@@ -248,6 +203,7 @@
         }
     }
 %>
+
 
 </BODY>
 </HTML>
