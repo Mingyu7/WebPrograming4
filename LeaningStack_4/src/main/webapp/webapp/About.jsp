@@ -83,19 +83,19 @@
             <img src="#" alt="Developer 1">
             <h3>이민규</h3>
             <p>팀장</p>
-            <p>"게시판 보기, 게시글 추가,수정,삭제 기능 제작"</p>
+            <p>"게시판 보기 게시글 추가,수정,삭제 기능 제작"</p>
         </div>
         <div class="developer-card">
             <img src="images.hc.png" alt="Developer 2">
             <h3>임형철</h3>
             <p>팀원</p>
-            <p>"로그인 및 회원가입페이지 제작/ 팀원 소개 페이지 제작"</p>
+            <p>"로그인 및 회원가입페이지 제작  팀원 소개 페이지 제작"</p>
         </div>
         <div class="developer-card">
             <img src="#" alt="Developer 3">
             <h3>이건희</h3>
             <p>팀원</p>
-            <p>""</p>
+            <p>"메인페이지 제작 로그인 및 회원가입페이지 제작"</p>
         </div>
     </div>
     <footer>
